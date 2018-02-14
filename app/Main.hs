@@ -1,15 +1,15 @@
 module Main where
 
-import Data.List
-import System.Environment
-import System.IO
-import System.Random
-import Data.Char
+import           Data.Char
+import           Data.List
+import           System.Environment
+import           System.IO
+import           System.Random
 
 sanitize :: String -> String
 sanitize str = filter charsOnly $ map toLower str
   where
-    charsOnly a = elem a ['a'..'z']
+    charsOnly a = elem a ['a' .. 'z']
 
 getWord :: [String] -> Int -> String
 getWord words idx = sanitize (head (drop idx words)) ++ " "
