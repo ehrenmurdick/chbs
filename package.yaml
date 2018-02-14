@@ -1,48 +1,12 @@
-name:                chbs
-version:             0.1.0.0
-github:              "githubuser/chbs"
-license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2018 Author name here"
-
-extra-source-files:
-- README.md
-- ChangeLog.md
-
-# Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
-description:         Please see the README on Github at <https://github.com/githubuser/chbs#readme>
-
+name: chbs
+version: 0.1.0
+license: MIT
+github: ehrenmurdick/chbs
 dependencies:
-- base >= 4.7 && < 5
+  - base >= 4.9 && < 5
+  - random
 
-library:
-  source-dirs: src
+executable:
+  main: Main.hs
+  source-dirs: app
 
-executables:
-  chbs-exe:
-    main:                Main.hs
-    source-dirs:         app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - chbs
-
-tests:
-  chbs-test:
-    main:                Spec.hs
-    source-dirs:         test
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - chbs
