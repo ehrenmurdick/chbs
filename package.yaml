@@ -5,6 +5,7 @@ github: ehrenmurdick/chbs
 dependencies:
   - base >= 4.9 && < 5
   - random
+  - Clipboard
 
 executable:
   main: Main.hs

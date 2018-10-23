@@ -5,6 +5,7 @@ import           Data.List
 import           System.Environment
 import           System.IO
 import           System.Random
+import           System.Clipboard
 
 sanitize :: String -> String
 sanitize str = filter charsOnly $ map toLower str
@@ -20,6 +21,8 @@ main = do
   let words = lines contents
   gen <- getStdGen
   let idxs = take 4 (randomRs (0, length words) gen)
-  let out = map (getWord words) idxs
-  mapM putStr out
+  let sentence = map (getWord words) idxs
+  let out = concat sentence
+  putStr out
   putStrLn ""
+  setClipboardString out
