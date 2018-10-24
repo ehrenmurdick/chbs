@@ -2,10 +2,10 @@ module Main where
 
 import           Data.Char
 import           Data.List
+import           System.Clipboard
 import           System.Environment
 import           System.IO
 import           System.Random
-import           System.Clipboard
 
 sanitize :: String -> String
 sanitize str = filter charsOnly $ map toLower str
