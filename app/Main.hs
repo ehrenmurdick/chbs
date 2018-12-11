@@ -15,6 +15,9 @@ sanitize str = filter charsOnly $ map toLower str
 getWord :: [String] -> Int -> String
 getWord words idx = sanitize (head (drop idx words)) ++ " "
 
+trim :: String -> String
+trim = dropWhileEnd isSpace . dropWhile isSpace
+
 main :: IO ()
 main = do
   contents <- readFile "/usr/share/dict/words"
@@ -23,6 +26,6 @@ main = do
   let idxs = take 4 (randomRs (0, length words) gen)
   let sentence = map (getWord words) idxs
   let out = concat sentence
-  putStr out
+  putStr (trim out)
   putStrLn ""
-  setClipboardString out
+  setClipboardString (trim out)
