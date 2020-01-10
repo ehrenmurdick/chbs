@@ -23,7 +23,7 @@ main = do
   contents <- readFile "/usr/share/dict/words"
   let words = lines contents
   gen <- getStdGen
-  let idxs = take 4 (randomRs (0, length words) gen)
+  let idxs = take 3 (randomRs (0, length words) gen)
   let sentence = map (getWord words) idxs
   let out = concat sentence
   putStr (trim out)
